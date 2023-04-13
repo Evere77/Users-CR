@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/bootstrap.css') }}">
+  <title>Users CR</title>
+</head>
+<body>
+  <h1 class="text-center">All Users</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>email</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for one_user in all_users %}
+        <tr>
+          <td>{{one_user.first_name}}</td>
+          <td>{{one_user.last_name}}</td>
+          <td>{{one_user.email}}</td>
+          <td>{{one_user.created_at}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  <form action="/users/new">
+    <button type="submit">Add a New User</button>
+  </form>
+</body>
+</html>
